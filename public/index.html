@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="nosnippet" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      sizes="128x128 64x64 32x32 24x24 16x16"
+      href="%PUBLIC_URL%/favicon.ico"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Poppins:300,500,700"
+    />
+    <title>Weather Forecast</title>
+    <style>
+      body {
+        margin: 20px;
+        font-family: Poppins, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      #no-javascript {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 80%;
+        max-width: 800px;
+        transform: translate(-50%, -50%);
+        color: #888888;
+        font-family: sans-serif;
+      }
+
+      #no-javascript h1 {
+        text-align: center;
+        margin: 0px 0px 40px 0px;
+        font-size: 5vw;
+      }
+
+      #no-javascript span {
+        font-size: 3vw;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>
+      <div id="no-javascript">
+        <h1>JavaScript is not supported</h1>
+        <span>
+          Please enable JavaScript to view this webpage.
+        <span>
+      </div>
+    </noscript>
+    <div id="root"></div>
+  </body>
+</html>

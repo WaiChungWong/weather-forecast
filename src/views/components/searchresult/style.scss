@@ -1,0 +1,171 @@
+@import "../../../variables.scss";
+
+.forecast {
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+
+  .city {
+    font-size: 28px;
+    font-weight: lighter;
+    padding: 20px 0px;
+  }
+
+  .five-day-forecast,
+  .three-hour-forecast {
+    position: relative;
+    white-space: nowrap;
+    transition: left $fast;
+
+    .day-forecast,
+    .hour-forecast {
+      display: inline-block;
+      padding: 20px 0px;
+      white-space: normal;
+
+      .forecast-title {
+        font-weight: lighter;
+      }
+
+      .forecast-image {
+        width: 60px;
+        height: 60px;
+
+        @include mobile() {
+          width: 40px;
+          height: 40px;
+        }
+      }
+
+      .forecast-condition {
+        @include mobile() {
+          font-size: 12px;
+        }
+      }
+
+      .forecast-temperature,
+      .forecast-wind {
+        margin: 10px auto;
+
+        .forecast-temperature-title,
+        .forecast-wind-speed-title {
+          font-weight: lighter;
+
+          @include tablet() {
+            display: none;
+          }
+        }
+
+        @include tablet() {
+          width: 80px;
+        }
+
+        @include mobile() {
+          width: 50px;
+          font-size: 11px;
+          line-height: 18px;
+        }
+      }
+
+      .forecast-temp-min,
+      .forecast-wind-direction {
+        opacity: 0.3;
+      }
+
+      .forecast-temp-min,
+      .forecast-wind-speed-unit,
+      .forecast-wind-direction {
+        @include tablet() {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .three-hour-forecast .hour-forecast {
+    background-color: transparent;
+    width: 12.5%;
+    transition: background-color $fast;
+
+    &.active {
+      background-color: $brightBlue;
+    }
+
+    .forecast-title {
+      @include mobile() {
+        margin: auto;
+        width: 50px;
+        line-height: 18px;
+      }
+    }
+  }
+
+  .five-day-forecast .day-forecast {
+    width: 20%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 20px 0px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color $fast;
+
+    &.active {
+      background-color: $brightBlue;
+    }
+
+    .forecast-title {
+      font-size: 21px;
+
+      @include mobile() {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+.search-message {
+  margin: 100px 0px;
+  font-size: 48px;
+  text-align: center;
+  color: $lightGray;
+
+  @include mobile() {
+    margin: 50px 0px;
+    font-size: 32px;
+  }
+}
+
+.search-loading {
+  position: relative;
+  height: 200px;
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 4px solid $orange;
+    opacity: 1;
+    border-radius: 50%;
+    animation: ripple-effect $slow cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  }
+
+  &:after {
+    animation-delay: -$slow / 2;
+  }
+}
+
+@keyframes ripple-effect {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    width: 100px;
+    height: 100px;
+    opacity: 0;
+  }
+}
