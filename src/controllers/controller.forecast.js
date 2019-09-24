@@ -8,6 +8,7 @@ import {
 } from "../actiontypes";
 import { dispatch } from "../store";
 import {
+  getAverage,
   getCachedValue,
   setCachedValue,
   clearCachedValue,
@@ -50,10 +51,10 @@ const summarizeDayForecast = ({ list, ...rest }) => ({
   condition: getMostFrequest(list.map(({ condition }) => condition)),
   icon: getMostFrequest(list.map(({ icon }) => icon)).replace("n@2x", "d@2x"),
   wind: {
-    direction: getMostFrequest(list.map(({ wind }) => wind.direction)),
-    speed: (
-      list.map(({ wind }) => wind.speed).reduce((a, b) => a + b) / list.length
-    ).toFixed(2)
+    direction: getWindDirection(
+      getAverage(list.map(({ wind }) => wind.degree))
+    ),
+    speed: getAverage(list.map(({ wind }) => wind.speed))
   },
   list,
   ...rest
@@ -86,6 +87,7 @@ const getFiveDayForecast = ({ city, list }) => {
       condition: weather[0].main,
       icon: `${WEATHER_ICON_URL}/${weather[0].icon}@2x.png`,
       wind: {
+        degree: wind.deg,
         direction: getWindDirection(wind.deg),
         speed: wind.speed
       }

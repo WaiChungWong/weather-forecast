@@ -58,12 +58,13 @@
 
         @include tablet() {
           width: 80px;
+          line-height: 20px;
         }
 
         @include mobile() {
           width: 50px;
-          font-size: 11px;
-          line-height: 18px;
+          font-size: 12px;
+          line-height: 16px;
         }
       }
 
@@ -82,20 +83,40 @@
     }
   }
 
-  .three-hour-forecast .hour-forecast {
-    background-color: transparent;
-    width: 12.5%;
-    transition: background-color $fast;
+  .three-hour-forecast {
+    .hour-forecast {
+      background-color: transparentize($white, 0.1);
+      width: 12.5%;
+      transition: background-color $fast;
 
-    &.active {
-      background-color: $brightBlue;
+      &.active {
+        background-color: transparentize($brightBlue, 0.5);
+      }
+
+      .forecast-title {
+        @include mobile() {
+          margin: auto;
+          width: 50px;
+          line-height: 18px;
+        }
+      }
     }
 
-    .forecast-title {
-      @include mobile() {
-        margin: auto;
-        width: 50px;
-        line-height: 18px;
+    .three-hour-forecast-graph {
+      position: absolute;
+      left: 0px;
+      bottom: 0px;
+      z-index: -1;
+
+      polyline {
+        fill: none;
+        stroke: $orange;
+        stroke-width: 1;
+      }
+
+      polygon {
+        fill: $orange;
+        opacity: 0.5;
       }
     }
   }
@@ -105,12 +126,12 @@
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     padding: 20px 0px;
-    background-color: transparent;
+    background-color: transparentize($white, 0.1);
     cursor: pointer;
     transition: background-color $fast;
 
     &.active {
-      background-color: $brightBlue;
+      background-color: transparentize($brightBlue, 0.5);
     }
 
     .forecast-title {

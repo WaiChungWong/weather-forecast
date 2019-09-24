@@ -12,6 +12,8 @@ export const get12HourFormat = date => {
   return `${hours}:${minutes} ${period}`;
 };
 
+export const getAverage = list => list.reduce((a, b) => a + b) / list.length;
+
 export const getMostFrequest = list => {
   let counts = list.reduce((a, c) => {
     a[c] = (a[c] || 0) + 1;
@@ -24,14 +26,13 @@ export const getMostFrequest = list => {
   return mostFrequent && mostFrequent[0];
 };
 
-export const kelvinToCelsius = kelvin => (kelvin - 273.15).toFixed(2);
+export const kelvinToCelsius = kelvin => kelvin - 273.15;
 
-export const kelvinToFahrenheit = kelvin =>
-  ((kelvin * 9) / 5 - 459.67).toFixed(2);
+export const kelvinToFahrenheit = kelvin => (kelvin * 9) / 5 - 459.67;
 
-export const mpsToKPH = mps => ((mps / 1000) * 3600).toFixed(2);
+export const mpsToKPH = mps => (mps / 1000) * 3600;
 
-export const mpsToMPH = mps => (((mps / 1000) * 3600) / 1.609344).toFixed(2);
+export const mpsToMPH = mps => ((mps / 1000) * 3600) / 1.609344;
 
 export const celsius = { unit: "°C", convert: kelvinToCelsius };
 
