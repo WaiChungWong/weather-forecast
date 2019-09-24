@@ -9,8 +9,9 @@ env:
 after_success: |
   if [ -n "$GITHUB_TOKEN" ]; then
     git checkout master
+    rm -rf demo
     npm run build
-    mv build demo
+    rsync -r build/* demo
     rm -rf build
     git add .
     git -c user.name="TravisCI" -c user.email="travis@travis-ci.org" commit -m "deploy demo"
