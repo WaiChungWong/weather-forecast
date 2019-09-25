@@ -1,9 +1,11 @@
 {
   "name": "weather-forecast",
   "version": "0.1.0",
-  "description": "A simple web app for weather forecast",
+  "description": "A simple web app for weather forecast, using source from Open Weather Map",
   "author": "John Wong <johnwongwwc@gmail.com>",
-  "homepage": "https://waichungwong.github.io/weather-forecast/demo",
+  "license": "ISC",
+  "private": true,
+  "homepage": "https://waichungwong.github.io/weather-forecast",
   "dependencies": {
     "axios": "^0.19.0",
     "classnames": "^2.2.6",

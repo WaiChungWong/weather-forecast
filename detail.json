@@ -1,7 +1,0 @@
-{
-  "demo": {
-    "link": "https://johnwong.io/weather-forecast/demo",
-    "video": "https://johnwong.io/weather-forecast/demo.mp4"
-  },
-  "stack": ["react", "redux", "sass"]
-}
